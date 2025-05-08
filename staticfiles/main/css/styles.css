@@ -1,0 +1,352 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #0066ff;
+  --herobg-color: #f9fafb;
+  --card-bg-color: #F5F5F7;
+  --tag-color: #e5e7eb;
+  --filter-color: #121212;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Стили для тёмной темы */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --accent-color: #3399ff;
+  --herobg-color: #333333;
+  --card-bg-color: #1E1E1E;
+  --tag-color: #333333;
+  --filter-color: #fff;
+}
+
+/* Стили для кнопки переключения */
+.toggle-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.toggle-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Круг для анимации */
+.circle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  z-index: 5;
+  width: 100px;
+  height: 100px;
+}
+
+.circle.expand {
+  animation: expandCircle 1s ease-in-out forwards; /* CSS-анимация */
+}
+
+@keyframes expandCircle {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(60); /* Увеличенный масштаб */
+  }
+}
+
+/* Общие стили для всего сайта */
+body {
+  background-color: var(--bg-color); /* белый фон */
+  color: var(--text-color); /* темно-серый текст */
+  font-family: sans-serif; /* шрифт sans-serif */
+  line-height: 1.5; /* высота строки для удобства чтения */
+}
+
+/* Стили для шапки (навигации) */
+.header {
+  position: sticky; /* фиксированная шапка при прокрутке */
+  top: 0; /* прилипает к верхнему краю */
+  z-index: 50; /* выше других элементов */
+  background-color: #ffffff; /* белый фон */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* легкая тень снизу */
+  margin: -0.5rem; /* внутренние отступы */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.header-container {
+  max-width: 1280px; /* максимальная ширина контейнера */
+  margin: 0 auto; /* центрирование */
+  display: flex; /* гибкий контейнер для выравнивания */
+  justify-content: space-between; /* элементы по краям */
+  align-items: center; /* выравнивание по центру по вертикали */
+  padding: 1rem 1.5rem; /* внутренние отступы */
+}
+
+.img-container {
+  width: 200px;
+  height: 50px;
+}
+
+.header-container img {
+    border-radius: 5px;
+    width: 100px;
+    height: auto;
+}
+
+.header-title {
+  font-size: 1.25rem; /* размер шрифта 20px */
+  font-weight: 700; /* жирный шрифт */
+}
+
+.nav {
+  display: inline-block; /* горизонтальное расположение ссылок */
+  gap: 1rem; /* расстояние между ссылками */
+  vertical-align: center;
+}
+
+.nav-link {
+  font-size: 0.875rem; /* размер шрифта 14px */
+  color: #1f2937; /* темно-серый цвет текста */
+  text-decoration: none; /* убираем подчеркивание */
+  margin-right: 15px;
+}
+
+.nav-link:hover {
+  text-decoration: underline; /* подчеркивание при наведении */
+}
+
+/* Стили для секции Hero (Обо мне) */
+.hero {
+  text-align: center; /* центрирование текста */
+  padding: 5rem 1.5rem; /* большие отступы сверху и снизу */
+  background-color: var(--herobg-color); /* светло-серый фон */
+}
+
+.hero-title {
+  font-size: 2.25rem; /* размер шрифта 36px */
+  font-weight: 600; /* полужирный шрифт */
+  margin-bottom: 1rem; /* отступ снизу */
+}
+
+.hero-text {
+  font-size: 1.125rem; /* размер шрифта 18px */
+  max-width: 32rem; /* максимальная ширина текста */
+  margin: 0 auto; /* центрирование */
+}
+
+/* Стили для секции Проекты */
+.projects {
+  padding: 4rem 1.5rem; /* отступы */
+  background-color: var(--bg-color); /* белый фон */
+}
+
+.projects-container {
+  max-width: 1280px; /* максимальная ширина */
+  margin: 0 auto; /* центрирование контейнера */
+  display: flex; /* используем flex для расположения карточек */
+  flex-wrap: wrap; /* перенос на новый ряд */
+  gap: 1rem; /* расстояние между карточками */
+}
+
+.projects-title {
+  font-size: 1.5rem; /* размер шрифта 24px */
+  font-weight: 600; /* полужирный шрифт */
+  margin-bottom: 2rem; /* отступ снизу */
+  text-align: center; /* выравнивание заголовка по левому краю */
+  width: 100%; /* заголовок занимает всю ширину */
+}
+
+.project-item {
+  background-color: var(--card-bg-color); /* белый фон карточки */
+  border-radius: 0.5rem; /* закругленные углы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* легкая тень */
+  padding: 1.5rem; /* внутренние отступы */
+  width: calc(50% - 0.5rem); /* ширина карточки: 50% минус половина gap */
+  margin-bottom: 1rem; /* отступ снизу для переносимых карточек */
+  box-sizing: border-box; /* чтобы padding не увеличивал ширину */
+  text-align: left; /* выравнивание текста по левому краю */
+}
+
+.project-image {
+  width: 100%; /* изображение на всю ширину карточки */
+  height: 200px; /* фиксированная высота */
+  top: -5px;
+  object-fit: cover; /* изображение обрезается, сохраняя пропорции */
+  border-radius: 0.5rem; /* закругленные углы */
+  margin-bottom: 1rem; /* отступ снизу */
+}
+
+.project-description {
+  color: #ffffff;
+}
+
+.container-button {
+  display: flex; /* Делаем контейнер Flex */
+  justify-content: center; /* Центрируем по горизонтали */
+  height: 100px; /* Задаем высоту контейнера */
+  width: 100%;
+}
+
+.button-project {
+  align-self: center;
+  padding: 10px 20px; /* Отступы внутри кнопки */
+  background-color: #4CAF50; /* Цвет фона, как в вашем скриншоте */
+  color: white; /* Цвет текста */
+  border: none; /* Убираем границу */
+  border-radius: 5px; /* Скругление углов */
+  cursor: pointer; /* Курсор при наведении */
+}
+
+.project-image-placeholder {
+  width: 100%; /* заглушка на всю ширину */
+  height: 200px; /* фиксированная высота */
+  background-color: #e5e7eb; /* светло-серый фон */
+  border-radius: 0.5rem; /* закругленные углы */
+  margin-bottom: 1rem; /* отступ снизу */
+  display: flex; /* центрирование текста внутри */
+  align-items: center;
+  justify-content: center;
+  color: #4b5563; /* серый цвет текста */
+  font-size: 0.875rem; /* размер шрифта 14px */
+}
+
+.project-name {
+  font-size: 1.25rem; /* размер шрифта 20px */
+  font-weight: 500; /* средняя жирность */
+  margin-bottom: 0.5rem; /* отступ снизу */
+}
+
+.project-description {
+  margin-bottom: 1rem; /* отступ снизу */
+  color: var(--text-color); /* серый цвет текста */
+}
+
+.project-tags {
+  display: flex; /* горизонтальное расположение тэгов */
+  flex-wrap: wrap; /* перенос на новую строку, если не помещаются */
+  gap: 0.5rem; /* расстояние между тэгами */
+}
+
+.tag {
+  background-color: var(--tag-color); /* светло-серый фон */
+  padding: 0.25rem 0.75rem; /* внутренние отступы */
+  border-radius: 9999px; /* полностью закругленные углы */
+  font-size: 0.875rem; /* размер шрифта 14px */
+}
+
+/* Стили для кнопки "See Our Work!" */
+.projects-button {
+  display: inline-block; /* кнопка как inline-block */
+  background-color: #e02424; /* красный фон */
+  color: #ffffff; /* белый текст */
+  padding: 0.75rem 1.5rem; /* внутренние отступы */
+  border-radius: 9999px; /* закругленные углы */
+  text-decoration: none; /* убираем подчеркивание */
+  font-weight: 600; /* полужирный шрифт */
+  margin-top: 2rem; /* отступ сверху */
+}
+
+.projects-button:hover {
+  background-color: #c91f1f; /* темнее при наведении */
+}
+
+.link {
+  text-decoration: none;
+  color: #ffffff; /* белый текст */
+  font-size: 1rem; /* размер шрифта 16px */
+}
+
+
+/* Адаптивность: на маленьких экранах карточки на всю ширину */
+@media (max-width: 768px) {
+  .project-item {
+    width: 100%; /* карточка на всю ширину */
+  }
+
+  .projects-title {
+    text-align: center; /* заголовок по центру на мобильных */
+  }
+}
+
+/* Стили для секции Контакты */
+.contact {
+  max-width: 1280px;
+  background-color: var(--card-bg-color); /* светло-серый фон */
+  margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 24px;
+}
+
+.contact-container-main {
+  display: flex;
+  max-width: 1280px;
+  align-self: center;
+  flex-direction: column;
+}
+
+.contact-container {
+  max-width: 1280px; /* максимальная ширина */
+  text-align: center; /* центрирование текста */
+  align-self: center;
+}
+
+.contact-item {
+    text-align: center; /* Центрируем содержимое */
+    margin: 10px 0; /* Отступы сверху и снизу */
+}
+
+.icon-wrapper {
+    display: inline-block;
+    vertical-align: middle; /* Выравнивание по вертикали */
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+
+.text-wrapper {
+    display: inline-block;
+    vertical-align: middle; /* Выравнивание по вертикали */
+    font-size: 16px;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.contact-title {
+  font-size: 1.5rem; /* размер шрифта 24px */
+  font-weight: 600; /* полужирный шрифт */
+  margin-bottom: 1rem; /* отступ снизу */
+
+}
+
+.contact-text {
+  margin-bottom: 1rem; /* отступ снизу */
+}
+
+.contact-link:hover {
+  text-decoration: underline; /* подчеркивание при наведении */
+}
+
+/* Стили для футера */
+.footer {
+  text-align: center; /* центрирование текста */
+  color: #9ca3af; /* светло-серый цвет текста */
+  font-size: 0.875rem; /* размер шрифта 14px */
+  padding: 2rem 0; /* отступы сверху и снизу */
+}
+
+.head {
+}

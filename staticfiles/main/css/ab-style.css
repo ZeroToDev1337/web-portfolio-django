@@ -1,0 +1,259 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #0066ff;
+    --herobg-color: #f9fafb;
+    --card-bg-color: #F5F5F7;
+    --tag-color: #e5e7eb;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Стили для тёмной темы */
+body.dark {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #3399ff;
+    --herobg-color: #333333;
+    --card-bg-color: #1E1E1E;
+    --tag-color: #333333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+/* Стили для шапки (навигации) */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin: -0.5rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.header .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav a {
+    font-size: 0.875rem;
+    color: #1f2937;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.nav a.active {
+    color: #2ecc71; /* Оставляем зеленый цвет для активной ссылки */
+    border-bottom: 2px solid #2ecc71;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+/* Стили для основной секции */
+.main-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 1px solid #ddd;
+}
+
+.avatar img {
+    width: 150px;
+    height: 150px;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 1px solid #ddd;
+}
+
+.main-content h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.main-content h2 {
+    font-size: 1.5rem;
+    color: #2ecc71; /* Зеленый цвет для подзаголовка */
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.main-content p {
+    font-size: 1.125rem;
+    color: #777;
+    max-width: 32rem;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+/* Стили для секции с информацией */
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.info-left {
+    background-color: var(--card-bg-color);
+    width: 45%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.info-right {
+    background-color: var(--card-bg-color);
+    width: 45%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.info-section h3 {
+    font-size: 1.5rem;
+    color: #2ecc71; /* Зеленый цвет для заголовков */
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background-color: var(--tag-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
+
+.ex-section {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+
+/* Стили для остальных секций */
+.section-left {
+    background-color: var(--card-bg-color);
+    width: 45%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.section-right {
+    background-color: var(--card-bg-color);
+    width: 45%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.section-left h3 {
+    font-size: 1.5rem;
+    color: #2ecc71; /* Зеленый цвет для заголовков */
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.section-left p {
+    font-size: 1.125rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+.section-right h3 {
+    font-size: 1.5rem;
+    color: #2ecc71; /* Зеленый цвет для заголовков */
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.section-right p {
+    font-size: 1.125rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Стили для CTA-секции */
+.cta-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.cta-section p {
+    font-size: 1.125rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #2ecc71; /* Зеленый цвет для кнопки */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #27ae60; /* Темнее зеленого при наведении */
+}

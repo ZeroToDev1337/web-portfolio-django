@@ -1,0 +1,127 @@
+/* Основные стили */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1280px; /* Устанавливаем такую же ширину, как у .contact */
+  margin: 0 auto; /* Центрируем контейнер по горизонтали */
+  padding: 20px;
+  display: flex; /* Используем flex для центрирования содержимого */
+  flex-direction: column; /* Вертикальное расположение элементов внутри контейнера */
+  align-items: center; /* Центрируем по вертикали */
+}
+
+.heads {
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  margin-bottom: 10px;
+}
+
+/* Фильтры */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.3s forwards;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background: var(--bg-color);
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--filter-color);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: #4CAF50;
+  color: var(--filter-color);
+}
+
+/* Сетка проектов */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Сохраняем адаптивность */
+  gap: 20px;
+  width: 100%; /* Занимаем всю доступную ширину контейнера */
+  max-width: 1200px; /* Ограничиваем максимальную ширину */
+  justify-content: center; /* Центрируем карточки внутри сетки */
+  align-items: stretch; /* Центрируем по вертикали (опционально) */
+}
+
+.project-card {
+  max-width: 400px;
+  background: var(--card-bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-in-out forwards;
+}
+
+/* Задержка анимации для каждой карточки */
+.project-card:nth-child(1) { animation-delay: 0.6s; }
+.project-card:nth-child(2) { animation-delay: 0.8s; }
+.project-card:nth-child(3) { animation-delay: 1s; }
+/* ... добавьте для остальных */
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 15px;
+}
+
+.project-info h3 {
+  margin: 0 0 10px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: var(--tag-color);
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

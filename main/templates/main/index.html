@@ -1,0 +1,63 @@
+{% load static %}
+
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{% static 'main/img/logo.png' %}" />
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}" /> <!-- Стили css -->
+    <link rel="stylesheet" href="{% static 'main/css/ab-style.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/css/project-style.css' %}" />
+  </head>
+  <body>
+    <!-- Навигация -->
+    <header class="header">
+      <div class="header-container">
+        <div class="img-container">
+          <a href="{% url 'home' %}">
+            <img src="{% static 'main/img/logo.png' %}" alt="logo">
+          </a>
+        </div>
+        <!---<h1 class="header-title">ZeroToDev</h1> --->
+        <nav class="nav">
+          <a href="{% url 'about' %}" class="nav-link">Обо мне</a>
+          <a href="{% url 'projects' %}" class="nav-link">Проекты</a>
+          <a href="#contact" class="nav-link">Контакты</a>
+          <button class="toggle-button">Режим</button>
+          <script src="{% static 'main/js/script_theme.js' %}"></script>
+        </nav>
+      </div>
+    </header>
+    {% block content %} {% endblock %}
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+      <div class="contact-container-main">
+        <div class="contact-container">
+          <h3 class="contact-title">Контакты</h3>
+
+          <span class="icon-wrapper">
+            <img src="{% static 'main/img/mail.svg' %}" alt="mail-logo" class="contact-icon">
+          </span>
+          <span class="text-wrapper">
+            mattioffwork@gmail.com
+          </span>
+
+          <span class="icon-wrapper">
+            <img src="{% static 'main/img/telegram.svg' %}" alt="telegram-logo" class="contact-icon">
+          </span>
+          <span class="text-wrapper">
+            <a href="https://t.me/matcreate">@matcreate</a>
+          </span>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      © 2025 ZeroToDev. Сделано с умом.
+    </footer>
+  </body>
+</html>

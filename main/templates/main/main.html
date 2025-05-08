@@ -1,0 +1,61 @@
+{% extends 'main/index.html' %}
+{% load static %}
+
+{% block title %}
+ZeroToDev — Web
+{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+    <section class="hero" id="about">
+      <h2 class="hero-title">Backend-разработчик</h2>
+      <p class="hero-text">
+        Пишу на Python + Django, делаю REST API, прорабатываю архитектуру, думаю о данных.
+      </p>
+      <div class="container-button">
+        <button class="button-project">
+          <a href="{% url 'about' %}" class="link">Подробнее</a>
+        </button>
+      </div>
+
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="projects-container">
+        <h3 class="projects-title">Проекты</h3>
+
+        <!-- Проект 1 -->
+        <div class="project-item">
+          <img src="{% static 'main/img/project1.png' %}" alt="Cайт для компании" class="project-image">
+          <h4 class="project-name">Одностраничный сайт для автосервиса</h4>
+          <p class="project-description">Создание одностраничного веб-сайта с backend-логикой на Python и Django, интеграция с базой данных PostgreSQL. Frontend выполнен при помощи, CSS + Bootstrap и HTML.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Django</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">HTML</span>
+          </div>
+        </div>
+
+        <!-- Проект 2 -->
+        <div class="project-item">
+          <img src="{% static 'main/img/project2.png' %}" alt="Интернет-магазин" class="project-image">
+          <h4 class="project-name">Лендинг для строительной компании</h4>
+          <p class="project-description">Разработка функционала для QB Pelinrakentaja Oy для строительной компании, с использованием WordPress, CSS + Bootstrap и JavaScript, с добавлением форм обратной связи. </p>
+          <div class="project-tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="container-button">
+          <button class="button-project">
+            <a href="{% url 'projects' %}" class="link">Больше проектов</a>
+          </button>
+        </div>
+      </div>
+    </section>
+{% endblock %}

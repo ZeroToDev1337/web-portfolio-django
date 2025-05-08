@@ -1,0 +1,42 @@
+{% extends 'main/index.html' %}
+
+{% load static %}
+
+{% block title %}
+Проекты
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="heads">
+    <h1>Мои проекты</h1>
+    <p>Лучшие работы за 2020–2024</p>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="web">Веб-сайты</button>
+    <button class="filter-btn" data-filter="logo">Лендинг</button>
+    <button class="filter-btn" data-filter="3d">3D</button>
+  </div>
+
+    <!-- Проекты -->
+    <div class="projects-grid">
+      {% for project in projects %}
+        <div class="project-card" data-category="{{ project.category }}">
+          <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-img">
+          <div class="project-info">
+            <h3>{{ project.title }}</h3>
+            <p class="text-project">{{ project.description }}</p>
+            <div class="project-tags">
+                {% for tag in project.tags.all %}
+                <span class="tag">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

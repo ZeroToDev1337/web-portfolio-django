@@ -1,0 +1,59 @@
+{% extends 'main/index.html' %}
+{% load static %}
+
+{% block title %}
+Обо мне
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <div class="avatar">
+        <img src="{% static 'main/img/avatar.jpg' %}" alt="avatar">
+    </div>
+    <h1>Обо мне</h1>
+    <h2>Python Backend Developer</h2>
+    <p>Разговариваю на языке Python</p>
+
+    <div class="info-section">
+        <div class="info-left">
+            <h3>Обо мне</h3>
+            <p>Backend-разработчик, сфокусированный на Django-стеке. Активно развиваюсь в
+области бэкенд-разработки, изучаю асинхронное программирование (Django
+Channels) и углубляюсь в тестирование API. Ценю чистоту кода, готов учиться у
+опытных коллег и вносить реальный вклад в развитие продукта. Открыт к новым
+технологическим вызовам.</p>
+        </div>
+        <div class="info-right">
+            <h3>Личное</h3>
+            <p>Меня вдохновляет возможность решать сложные задачи и видеть, как мои решения помогают людям. Я выбрал backend-разработку, потому что люблю работать с данными и создавать системы, которые работают как часы. В свободное время увлекаюсь минимализмом в дизайне, обожаю кофе с корицей и прогулки на природе.</p>
+        </div>
+    </div>
+
+    <div class="ex-section">
+        <div class="section-left">
+            <h3>Опыт</h3>
+            <p>Я backend-разработчик с 5 годами опыта. Работал в IT-компаниях, а также фрилансером над проектами разного масштаба. Специализируюсь на создании REST API и архитектуры приложений с использованием Python и Django.</p>
+        </div>
+
+        <div class="section-right">
+            <h3>Скилы</h3>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">REST API</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">CI/CD</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <p>Хотите обсудить проект? Напишите мне!</p>
+        <a href="#contact" class="cta-button">Связаться</a>
+    </div>
+</div>
+
+{% endblock %}
