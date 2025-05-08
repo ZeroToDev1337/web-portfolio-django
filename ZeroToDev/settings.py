@@ -13,6 +13,8 @@ import os
 import dj_database_url
 from pathlib import Path
 from decouple import config, Csv
+from dotenv import load_dotenv
+load_dotenv()  # Если используешь .env файл
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'storages',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +78,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ZeroToDev.wsgi.application'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),  # Данные из Cloudinary
+    'API_KEY': os.getenv('API_KEY'),
+    'API_SECRET': os.getenv('API_SECRET')
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
