@@ -14,6 +14,7 @@ import dj_database_url
 from pathlib import Path
 from decouple import config, Csv
 from dotenv import load_dotenv
+import cloudinary
 load_dotenv()  # Если используешь .env файл
 
 
@@ -89,10 +90,27 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.getenv('ENGINE_NAME'),
+#         'NAME': os.getenv('NAME'),        # имя базы данных
+#         'USER': os.getenv('USER'),            # имя пользователя
+#         'PASSWORD': os.getenv('PASSWORD'),    # пароль пользователя
+#         'HOST': os.getenv('HOST'),         # или, например, db если используешь Docker
+#         'PORT': os.getenv('PORT'),              # стандартный порт PostgreSQL
+#     }
+# }
+
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=600)
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
